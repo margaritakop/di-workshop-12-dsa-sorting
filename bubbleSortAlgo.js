@@ -1,3 +1,7 @@
+//log the times 
+let arrayLength = []
+let sortTime = []
+
 function bubbleSort(a) {
     var swapped;
     do {
@@ -23,14 +27,30 @@ function getArray(length, upBound){
     return array
 }
 
-var ary = getArray(10, 100)
+//var ary = getArray(10, 100)
 
 //start timer
-let startTime = new Date()
-bubbleSort(ary);
+//let startTime = new Date()
+//bubbleSort(ary);
 //end timer
-let endTime = new Date()
+//let endTime = new Date()
+//console.log('Runtime )msec: ', endTime - startTime)
+//console.log(ary);
 
-console.log('Runtime )msec: ', endTime - startTime)
+let maxLen  = 1000000 //the max length of the tested arrays
 
-console.log(ary);
+for (var i = 500000; i < maxLen+1 ; i+= 400000){
+    
+    var ary = getArray(i, maxLen)
+    console.log('Generated array of length ', i)
+    let startTime = new Date()
+    bubbleSort(ary)
+    let endTime = new Date()
+
+    arrayLength.push(i)
+    sortTime.push(endTime - startTime)
+    console.log('runtime was: ', endTime - startTime)
+}
+
+console.log(arrayLength)
+console.log(sortTime)
