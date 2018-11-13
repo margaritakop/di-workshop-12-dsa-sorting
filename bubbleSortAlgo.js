@@ -13,8 +13,17 @@ function bubbleSort(a) {
     } while (swapped);
 }
  
-var ary = [34, 203, 3, 746, 200, 984, 198, 764, 9]
+//var ary = [34, 203, 3, 746, 200, 984, 198, 764, 9] replaced by random array
 
+//generate array with given length and given upper bound, starts from 0)
+function getArray(length, upBound){
+    let array = []
+    for (var i = 0; i < length; i++)
+        array.push((Math.floor(Math.random()*upBound)))
+    return array
+}
+
+var ary = getArray(10, 100)
 
 //start timer
 let startTime = new Date()
